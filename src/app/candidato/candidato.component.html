@@ -1,1 +1,76 @@
-<p>candidato works!</p>
+<nav class="navbar" style="background-color: #ccc;">
+  <div class="container-fluid d-flex justify-content-center">
+    <span class="navbar-brand mb-0 h1">Cadastro</span>
+  </div>
+</nav>
+<form class="form-group ">
+  <div class="form-div col-md-6 offset-md-3 offset-md-3 ">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required class="form-control">
+  </div>
+
+  <div class="form-div col-md-6 offset-md-3 ">
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" name="cpf" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" required class="form-control">
+  </div>
+
+  <div class="form-div col-md-6 offset-md-3 ">
+    <label for="dataNascimento">Data de Nascimento:</label>
+    <input type="date" id="dataNascimento" name="dataNascimento" required class="form-control">
+  </div>
+
+  <div class="form-div col-md-6 offset-md-3 ">
+    <label for="enail">E-mail:</label>
+    <input type="email" name="email" id="email" required class="form-control">
+  </div>
+
+  <div class="form-div col-md-6 offset-md-3 ">
+    <label for="telefone">Telefone:</label>
+    <input type="tel" name="telefone" id="telefone" class="form-control">
+  </div>
+
+  <div class="form-div col-md-6 offset-md-3 ">
+    <label for="escolaridade">Escolaridade</label>
+    <select name="escolaridade" id="escolaridade" required>
+      <option value="" disabled selected>Selecione a escolaridade</option>
+      <option value="analfabeto">Analfabeto</option>
+      <option value="fundamentalCompleto">Fundamental Completo</option>
+      <option value="medioIncompleto">Médio Incompleto</option>
+      <option value="medioCompleto">Médio Completo</option>
+      <option value="superiorIncompleto">Superior Incompleto</option>
+      <option value="superiorCompleto">Superior Completo</option>
+      <option value="mestrado">Mestrado</option>
+      <option value="doutorado">Doutorado</option>
+      <option value="ignorado">Ignorado</option>
+    </select>
+  </div>
+
+  <div class="form-div col-md-6 offset-md-3">
+    <label for="funcao">Função</label>
+    <input type="text" name="funcao" id="funcao" required class="form-control">
+  </div>
+
+  <div class="form-div col-md-6 offset-md-3">
+    <label for="competencias"> Lista de Competências</label>
+    <ul id="competencias" style="list-style: none;">
+      <li class="form-list">
+        <label for="competencia1">Descrição:</label>
+        <input type="text" name="competencia1Descricao" id="competencia1" required class="form-control">
+        <label for="competencia1Nivel"> Nível de proficiência:</label>
+        <input type="number" name="competencia1Nivel" id="competencia1Nivel" min="1" max="5" required class="form-control">
+      </li>
+      <li class="form-list">
+        <label for="competencia2">Descrição:</label>
+        <input type="text" name="competencia2Descricao" id="competencia2" required class="form-control">
+        <label for="competencia2Nivel"> Nível de proficiência:</label>
+        <input type="number" name="competencia2Nivel" id="competencia2Nivel" min="1" max="5" required class="form-control">
+      </li>
+    </ul>
+  </div>
+  <div class="text-center">
+    <button id="btn-cadastro" type="button" class="btn btn-outline-secondary ">Secondary</button>
+  </div>
+
+</form>
+
+
