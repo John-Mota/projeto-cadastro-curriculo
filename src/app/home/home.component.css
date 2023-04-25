@@ -1,0 +1,21 @@
+.body-home {
+  background-color: #e9e9e9;
+  min-height: 100vh;
+
+}
+
+.box-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 160px;
+}
+
+.box-menu button {
+  margin-bottom: 10px;
+}
+
+#link-button{
+  text-decoration: none;
+  color: whitesmoke;
+}
