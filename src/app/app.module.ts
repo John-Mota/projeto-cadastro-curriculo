@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { CandidatoComponent } from './candidato/candidato.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
+import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CandidatoComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    LoginAdminComponent
   ],
   imports: [
     BrowserModule,

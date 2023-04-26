@@ -12,8 +12,6 @@ export class HomeComponent {
     private router: Router
   ) {}
 
-  candidato(): void{
-    this.router.navigate(['/candidato']);
-  }
+  
 
 }
