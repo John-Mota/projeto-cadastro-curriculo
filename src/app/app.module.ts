@@ -8,6 +8,7 @@ import { CandidatoComponent } from './candidato/candidato.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
+import { ConsultaCadastroComponent } from './candidato/consulta-cadastro/consulta-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
     CandidatoComponent,
     AdminComponent,
     HomeComponent,
-    LoginAdminComponent
+    LoginAdminComponent,
+    ConsultaCadastroComponent
   ],
   imports: [
     BrowserModule,
