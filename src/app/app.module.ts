@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environment';
 
 import { AppComponent } from './app.component';
@@ -23,7 +25,9 @@ import { ConsultaCadastroComponent } from './candidato/consulta-cadastro/consult
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: 'apiUrl', useValue: environment.apiUrl }
