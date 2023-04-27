@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { environment } from 'src/environment';
 
 import { AppComponent } from './app.component';
 import { CandidatoComponent } from './candidato/candidato.component';
@@ -24,7 +25,10 @@ import { ConsultaCadastroComponent } from './candidato/consulta-cadastro/consult
     RouterModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'apiUrl', useValue: environment.apiUrl }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
