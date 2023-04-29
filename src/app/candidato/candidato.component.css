@@ -9,4 +9,11 @@ form {
   padding-bottom: 20px;
 }
 
+.centralizado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 
