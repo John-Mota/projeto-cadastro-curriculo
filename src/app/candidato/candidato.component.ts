@@ -32,8 +32,6 @@ export class CandidatoComponent implements OnInit{
         })
       ])
     });
-    console.log(this.candidatoForm.valid)
-    console.log(this.exibirFormulario)
   }
 
   get competencias() {

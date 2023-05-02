@@ -10,8 +10,7 @@ import { AppComponent } from './app.component';
 import { CandidatoComponent } from './candidato/candidato.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
-import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
-import { ConsultaCadastroComponent } from './candidato/consulta-cadastro/consulta-cadastro.component';
+import { TemplateAdministrativoComponent } from './template-administrativo/template-administrativo.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { ConsultaCadastroComponent } from './candidato/consulta-cadastro/consult
     CandidatoComponent,
     AdminComponent,
     HomeComponent,
-    LoginAdminComponent,
-    ConsultaCadastroComponent
+    TemplateAdministrativoComponent
   ],
   imports: [
     BrowserModule,
