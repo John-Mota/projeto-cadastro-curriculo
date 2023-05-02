@@ -16,6 +16,7 @@ export class CandidatoComponent implements OnInit{
   constructor(private fb: FormBuilder ,private http: HttpClient) { }
 
   ngOnInit(): void {
+
     this.candidatoForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       cpf: new FormControl('', Validators.required),
@@ -32,6 +33,7 @@ export class CandidatoComponent implements OnInit{
       ])
     });
     console.log(this.candidatoForm.valid)
+    console.log(this.exibirFormulario)
   }
 
   get competencias() {
@@ -49,13 +51,12 @@ export class CandidatoComponent implements OnInit{
 
 
   onSubmit() {
-    console.log(this.candidatoForm)
     const data = this.candidatoForm.value;
     data.competencias = this.competencias.getRawValue();
-    this.http.post('http://localhost:3000/curriculum', data)
+    this.http.post('http://localhost:3000/curriculos', data)
     .subscribe(response => {
-      this.cadastroCriado = true;
       this.exibirFormulario = false;
+      this.cadastroCriado = true;
   });
   }
 

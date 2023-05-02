@@ -70,14 +70,14 @@
     </div>
 
     <div class="text-center">
-      <button id="btn-cadastro" type="submit" class="btn btn-primary" [disabled]="!candidatoForm.valid">Enviar</button>
+      <button id="btn-cadastro" type="button" (click)="onSubmit()" class="btn btn-primary" [disabled]="!candidatoForm.valid">Enviar</button>
     </div>
   </form>
 </div>
 
 <div *ngIf="cadastroCriado && !exibirFormulario" class="alert alert-success centralizado">
   Cadastro criado com sucesso!
-  <button type="button" class="btn btn-outline-secondary" [disabled]="!candidatoForm.valid"  >Novo cadastro</button>
+  <button type="button" class="btn btn-outline-secondary" [disabled]="!candidatoForm.valid" (click)="voltarParaFormulario()">Novo cadastro</button>
 </div>
 
 
