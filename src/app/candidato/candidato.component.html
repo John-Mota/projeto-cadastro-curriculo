@@ -60,8 +60,14 @@
         <div class="form-list" *ngFor="let competencia of competencias.controls; let i = index" [formGroupName]="i">
           <label for="descricao">Descrição:</label>
           <input type="text" formControlName="descricao" class="form-control" required>
-          <label for="nivel">Nível de proficiência:</label>
-          <input type="number" formControlName="nivel" min="1" max="5" class="form-control" required>
+          <select formControlName="nivel" class="form-control" required>
+            <option value="">Selecione um nível</option>
+            <option value="iniciante">Iniciante</option>
+            <option value="intermediario">Intermediário</option>
+            <option value="avançado">Avançado</option>
+            <option value="expert">Expert</option>
+            <option value="observacao">Observação</option>
+          </select>
         </div>
       </div>
       <div class="text-center mt-2">

@@ -1,0 +1,77 @@
+<nav class="navbar" style="background-color: #ccc;">
+  <div class="container-fluid">
+    <a class="navbar-brand mb-0 h1" routerLink="/">Home</a>
+    <div class="container d-flex justify-content-center">
+      <span class="navbar-brand mb-0 h1">Login Administrativo</span>
+    </div>
+  </div>
+</nav>
+
+<div *ngIf="!exibirCandidato">
+  <div class="d-flex justify-content-center align-items-center body-admin">
+    <div class="card">
+      <div class="card-header text-center">
+        Login
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" [(ngModel)]="cpf" placeholder="Digite seu CPF">
+          </div>
+          <div class="text-center btn-adm">
+            <button id="btn-login-adm" type="button" class="btn btn-outline-secondary btn-block" (click)="onSubmit()">Entrar</button>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div *ngIf="exibirCandidato">
+    <div class="row">
+      <div class="col-sm-2"><strong>Nome:</strong></div>
+      <div class="col-sm-10">{{ candidato.nome }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"><strong>CPF:</strong></div>
+      <div class="col-sm-10">{{ candidato.cpf }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"><strong>Data de nascimento:</strong></div>
+      <div class="col-sm-10">{{ candidato.dataNascimento.split('T')[0].split('-').reverse().join('/') }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"><strong>Email:</strong></div>
+      <div class="col-sm-10">{{ candidato.email }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"><strong>Telefone:</strong></div>
+      <div class="col-sm-10">{{ candidato.telefone }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"><strong>Escolaridade:</strong></div>
+      <div class="col-sm-10">{{ candidato.escolaridade }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"><strong>Função:</strong></div>
+      <div class="col-sm-10">{{ candidato.funcao }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"><strong>Aprovação:</strong></div>
+      <div class="col-sm-10">{{ candidato.aprovacao }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"><strong>Competências:</strong></div>
+      <div class="col-sm-10">
+        <ul>
+          <li *ngFor="let competencia of candidato.competencias">
+            {{ competencia.descricao }} - {{ competencia.nivel }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+

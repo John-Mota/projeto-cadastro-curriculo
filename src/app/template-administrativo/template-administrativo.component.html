@@ -1,47 +1,58 @@
-<div class="container">
-  <h1>Informações dos candidatos</h1>
-
-  <div class="row" *ngFor="let candidato of cadastros">
-    <div class="col-sm-2"><strong>ID:</strong></div>
-    <div class="col-sm-10">{{ candidato.id }}</div>
+<nav class="navbar" style="background-color: #ccc;">
+  <div class="container-fluid">
+    <a class="navbar-brand mb-0 h1" routerLink="/">Home</a>
+    <div class="container d-flex justify-content-center">
+      <span class="navbar-brand mb-0 h1">Informações dos candidatos</span>
+    </div>
   </div>
+</nav>
+<div class="container" *ngFor="let candidato of cadastros">
 
-  <div class="row" *ngFor="let candidato of cadastros">
+
+
+  <div class="row">
     <div class="col-sm-2"><strong>Nome:</strong></div>
     <div class="col-sm-10">{{ candidato.nome }}</div>
   </div>
 
-  <div class="row" *ngFor="let candidato of cadastros">
+  <div class="row">
     <div class="col-sm-2"><strong>CPF:</strong></div>
     <div class="col-sm-10">{{ candidato.cpf }}</div>
   </div>
 
-  <div class="row" *ngFor="let candidato of cadastros">
+  <div class="row">
     <div class="col-sm-2"><strong>Data de nascimento:</strong></div>
-    <div class="col-sm-10">{{ candidato.dataNascimento }}</div>
+    <div class="col-sm-10">{{ candidato.dataNascimento.split('T')[0].split('-').reverse().join('/') }}</div>
+
   </div>
 
-  <div class="row" *ngFor="let candidato of cadastros">
+  <div class="row">
     <div class="col-sm-2"><strong>Email:</strong></div>
     <div class="col-sm-10">{{ candidato.email }}</div>
   </div>
 
-  <div class="row" *ngFor="let candidato of cadastros">
+  <div class="row">
     <div class="col-sm-2"><strong>Telefone:</strong></div>
     <div class="col-sm-10">{{ candidato.telefone }}</div>
   </div>
 
-  <div class="row" *ngFor="let candidato of cadastros">
+  <div class="row">
     <div class="col-sm-2"><strong>Escolaridade:</strong></div>
     <div class="col-sm-10">{{ candidato.escolaridade }}</div>
   </div>
 
-  <div class="row" *ngFor="let candidato of cadastros">
+  <div class="row">
     <div class="col-sm-2"><strong>Função:</strong></div>
     <div class="col-sm-10">{{ candidato.funcao }}</div>
   </div>
 
-  <div class="row" *ngFor="let candidato of cadastros">
+  <div class="row">
+    <div class="col-sm-2"><strong>Aprovação:</strong></div>
+    <div class="col-sm-10">{{ candidato.aprovacao }}</div>
+  </div>
+
+
+  <div class="row">
     <div class="col-sm-2"><strong>Competências:</strong></div>
     <div class="col-sm-10">
       <ul>
@@ -51,5 +62,10 @@
       </ul>
     </div>
   </div>
+  <div class="col-sm-10">
+    <button (click)="setAprovacao(candidato, 'Aprovado')" [class.active]="candidato.aprovacao === 'Aprovado'" class="btn btn-success mr-2">Aprovado</button>
+    <button (click)="setAprovacao(candidato, 'Reprovado')" [class.active]="candidato.aprovacao === 'Reprovado'" class="btn btn-danger">Reprovado</button>
+  </div>
+  <hr>
 </div>
 
