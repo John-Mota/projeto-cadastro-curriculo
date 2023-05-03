@@ -8,21 +8,29 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./consulta-cadastro.component.css']
 })
 export class ConsultaCadastroComponent {
-  candidato: any;
+  candidato: any = {};
   cpf!: string;
   exibirCandidato: boolean = false
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, http: HttpClient) {}
 
   onSubmit() {
-    this.authService.findCandidato(this.cpf).subscribe(
-      (candidato) => {
-        this.candidato = candidato;
+    this.pesquisarPorCPF(this.cpf);
+
+  }
+
+  pesquisarPorCPF(cpf: string) {
+    const cpfLimpo = this.cpf.replace(/[^\d]/g, '');
+
+    this.authService.pesquisarPorCPF(cpfLimpo).subscribe((results) => {
+      console.log('Resultado da busca', results);
+      if(cpfLimpo.length > 0) {
+        this.candidato = results;
         this.exibirCandidato = true
-      },
-      (error) => {
-        console.log(error)
+      } else {
+        console.log(`Candidato com CPF ${cpf} não encontrado`)
+        this.exibirCandidato = false;
       }
-    )
+    })
   }
 }

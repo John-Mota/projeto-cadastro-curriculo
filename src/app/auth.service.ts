@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,15 +31,22 @@ export class AuthService {
     return this.http.put(`http://localhost:3000/curriculos/${id}/aprovacao`, { aprovacao });
   }
 
-  pesquisarPorCPF() {
-    this.http.pesquisarPorCPF(this.cpf).subscribe((resultado) => {
-      if (resultado.length > 0) {
-        // Usuário encontrado, faça o que desejar aqui.
-      } else {
-        // Usuário não encontrado, faça o que desejar aqui.
-      }
-    });
+  pesquisarPorCPF(cpf: string): Observable<any> {
+    return this.http.get(`http://localhost:3000/curriculos?cpf=${cpf}`).pipe(
+      map((response: any) => {
+        if (response.length > 0) {
+          return response[0];
+        } else {
+          return null;
+        }
+      }),
+      catchError((error) => {
+        console.log('Error:', error);
+        return of(null);
+      })
+    );
   }
 
 
 }
+

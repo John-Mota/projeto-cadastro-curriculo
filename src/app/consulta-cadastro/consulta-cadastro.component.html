@@ -1,13 +1,12 @@
-<nav class="navbar" style="background-color: #ccc;">
-  <div class="container-fluid">
-    <a class="navbar-brand mb-0 h1" routerLink="/">Home</a>
-    <div class="container d-flex justify-content-center">
-      <span class="navbar-brand mb-0 h1">Login Administrativo</span>
-    </div>
-  </div>
-</nav>
-
 <div *ngIf="!exibirCandidato">
+  <nav class="navbar" style="background-color: #ccc;">
+    <div class="container-fluid">
+      <a class="navbar-brand mb-0 h1" routerLink="/">Home</a>
+      <div class="container d-flex justify-content-center">
+        <span class="navbar-brand mb-0 h1">Login Administrativo</span>
+      </div>
+    </div>
+  </nav>
   <div class="d-flex justify-content-center align-items-center body-admin">
     <div class="card">
       <div class="card-header text-center">
@@ -21,7 +20,6 @@
           </div>
           <div class="text-center btn-adm">
             <button id="btn-login-adm" type="button" class="btn btn-outline-secondary btn-block" (click)="onSubmit()">Entrar</button>
-
           </div>
         </form>
 
@@ -30,7 +28,15 @@
   </div>
 </div>
 
-  <div *ngIf="exibirCandidato">
+  <div *ngIf="exibirCandidato" class="exibir">
+    <nav class="navbar" style="background-color: #ccc;">
+      <div class="container-fluid">
+        <a class="navbar-brand mb-0 h1" routerLink="/">Home</a>
+        <div class="container d-flex justify-content-center">
+          <span class="navbar-brand mb-0 h1">Candidato {{ candidato.nome}}</span>
+        </div>
+      </div>
+    </nav>
     <div class="row">
       <div class="col-sm-2"><strong>Nome:</strong></div>
       <div class="col-sm-10">{{ candidato.nome }}</div>
@@ -63,15 +69,18 @@
       <div class="col-sm-2"><strong>Aprovação:</strong></div>
       <div class="col-sm-10">{{ candidato.aprovacao }}</div>
     </div>
-    <div class="row">
+    <div class="row lista-datalhe">
       <div class="col-sm-2"><strong>Competências:</strong></div>
       <div class="col-sm-10">
         <ul>
-          <li *ngFor="let competencia of candidato.competencias">
+          <li *ngFor="let competencia of candidato.competencias" class="">
             {{ competencia.descricao }} - {{ competencia.nivel }}
           </li>
         </ul>
       </div>
+    </div>
+    <div class="text-center btn-adm">
+      <button id="btn-login-adm" type="button" class="btn btn-outline-secondary btn-block" (click)="exibirCandidato = false">Voltar</button>
     </div>
   </div>
 
